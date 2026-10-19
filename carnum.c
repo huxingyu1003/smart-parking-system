@@ -363,8 +363,9 @@ int car_find_plate_copy(const char *plate, int *park, char (*plate_out)[16], int
     return 1;
 }
 
-#define DATA_FILE      "./park.dat"
-#define TMP_FILE       "./park.dat.tmp"
+#define DATA_DIR       "/userdata"
+#define DATA_FILE      DATA_DIR "/park.dat"
+#define TMP_FILE       DATA_DIR "/park.dat.tmp"
 #define DATA_VERSION   1
 
 static int write_all(int fd, const void *buf, size_t len)
@@ -492,7 +493,7 @@ int file_forsave(void)
         ret = -1;
         goto out;
     }
-    int dfd = open(".", O_RDONLY | O_DIRECTORY);
+    int dfd = open(DATA_DIR, O_RDONLY | O_DIRECTORY);
 
     if (dfd == -1)
     {
