@@ -1,0 +1,17 @@
+# 编译产物
+bin/
+build/
+*.o
+*.a
+*.out
+client
+
+# 运行时数据
+*.dat
+park.dat.tmp
+
+# 第三方库
+LVGL/
+
+# 杂项
+*.log
